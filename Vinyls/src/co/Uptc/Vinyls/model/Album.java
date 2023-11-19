@@ -27,7 +27,6 @@ public class Album {
         this.recordLabel = recordLabel;
     }
     
-  //Getter
     // METHODS GETTER
     public String getName() {
         return name;
@@ -57,7 +56,6 @@ public class Album {
     	return duration;
     }
     
-    //Setter
     // METHODS SETTER
     public void setName(String name) {
         this.name = name;
