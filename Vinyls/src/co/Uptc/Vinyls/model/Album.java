@@ -16,7 +16,7 @@ public class Album {
 	private String genre;
 	private String recordLabel;
 	
-    // BUILDER
+    // BUILDERS
     public Album(String name, String cover, String description, String duration, String releaseDate, String genre, String recordLabel) {
         this.name = name;
         this.cover = cover;
@@ -25,6 +25,9 @@ public class Album {
         this.releaseDate = releaseDate;
         this.genre = genre;
         this.recordLabel = recordLabel;
+    }
+    public Album() {
+        
     }
     
     // METHODS GETTER
@@ -90,7 +93,7 @@ public class Album {
 	    boolean existingAlbum = false;
 	
 	    for (int i = 0; i < albums.size(); i++) {
-	        if (albums.get(i).getName() == name) {
+	        if (albums.get(i).getName().equals(name)) {
 	            albums.remove(i);
 	            existingAlbum = true;
 	            break;
@@ -98,9 +101,9 @@ public class Album {
 	    }
 	
 	    if (existingAlbum) {
-	        JOptionPane.showMessageDialog(null, "Album deleted successfully.");
+	        System.out.print("Album deleted successfully.");
 	    } else {
-	        JOptionPane.showMessageDialog(null, "The album does not exist. Could not delete.");
+	    	System.out.print("The album does not exist. Could not delete.");
 	    }
 	
 	    return albums;
