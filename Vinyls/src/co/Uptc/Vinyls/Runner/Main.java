@@ -8,11 +8,7 @@ import co.Uptc.Vinyls.model.Song;
 public class Main {
 
 	public static void main(String[] args) {
-		Song s1 = new Song("Inkspots","48second");
 		
-		s1.updateSong("Woman", "12seconds");
-		
-		System.out.print(s1.getName()+"\n"+s1.getDuration());
 	}
 	
 	public static void listAlbums(ArrayList<Album> albums){

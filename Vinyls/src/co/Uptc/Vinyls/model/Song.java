@@ -27,12 +27,17 @@ public class Song {
     	return duration;
     }
 	
-	public void updateSong(String name, String duration){
-		if(name != null) {
-			this.name = name;
+	public static ArrayList<Song> uptadeSong(ArrayList<Song> songs, String name, String newName, String duration){
+		for(int i = 0; i<songs.size(); i++) {
+			if (songs.get(i).name.equals(name)) {
+				if(newName != null) {
+					songs.get(i).name = newName;
+				}
+				if(duration != null) {
+					songs.get(i).duration = duration;
+				}
+			}
 		}
-		if(duration != null) {
-			this.duration = duration;
-		}
+		return songs;
 	}
 }
