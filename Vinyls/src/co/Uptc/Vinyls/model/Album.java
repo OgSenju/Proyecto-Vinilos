@@ -89,7 +89,7 @@ public class Album {
     }
 
 
-	public ArrayList<Album> deleteAlbum(String name, ArrayList<Album> albums) {
+	public static ArrayList<Album> deleteAlbum(String name, ArrayList<Album> albums) {
 	    boolean existingAlbum = false;
 	
 	    for (int i = 0; i < albums.size(); i++) {
@@ -109,12 +109,12 @@ public class Album {
 	    return albums;
 	}
 	
-	public ArrayList<Album> updateAlbum(ArrayList<Album> albums, String name, String cover, String description, String duration, String releaseDate, String genre, String recordLabel){
+	public static ArrayList<Album> updateAlbum(ArrayList<Album> albums, String name,String newName , String cover, String description, String duration, String releaseDate, String genre, String recordLabel){
 		for (int i = 0; i < albums.size(); i++) {
 	        if (albums.get(i).getName() == name) {
-	            if(name==null) {
+	            if(newName==null) {
 	            }else {
-	            	albums.get(i).name = name;
+	            	albums.get(i).name = newName;
 	            }if(cover==null) {
 	            }else {
 	            	albums.get(i).cover = cover;

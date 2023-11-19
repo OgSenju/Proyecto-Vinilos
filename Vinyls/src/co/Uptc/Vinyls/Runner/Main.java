@@ -15,13 +15,12 @@ public class Main {
 		System.out.print(s1.getName()+"\n"+s1.getDuration());
 	}
 	
-	private void listAlbums(ArrayList<Album> albums){
+	public static void listAlbums(ArrayList<Album> albums){
 		for(int i = 0; i < albums.size(); i++) {
 			System.out.print("Name: "+albums.get(i).getName());
 			System.out.print("Artist/Band: "+albums.get(i).getCover());
 			System.out.print("Genre: "+albums.get(i).getGenre());
 			System.out.print("\n");
 		}
-		
 	}
 }
