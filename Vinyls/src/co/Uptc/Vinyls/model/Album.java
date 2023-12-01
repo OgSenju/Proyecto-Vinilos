@@ -3,8 +3,9 @@ package co.Uptc.Vinyls.model;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Scanner;
 
-import javax.swing.JOptionPane;
 
 
 public class Album {
@@ -87,7 +88,39 @@ public class Album {
     public void setDuration(String duration) {
     	this.duration = duration;
     }
+    
+    public static Album createAlbum() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Creating a new Album:");
+
+        System.out.print("Enter Album Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter Album Cover: ");
+        String cover = scanner.nextLine();
+
+        System.out.print("Enter Album Description: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter Album Duration: ");
+        String duration = scanner.nextLine();
+
+        System.out.print("Enter Release Date (YYYY-MM-DD): ");
+        String releaseDate = scanner.nextLine();
+
+        System.out.print("Enter Album Genre: ");
+        String genre = scanner.nextLine();
+
+        System.out.print("Enter Record Label: ");
+        String recordLabel = scanner.nextLine();
+
+    
+        Album newAlbum = new Album(name, cover, description, duration, releaseDate, genre, recordLabel);
+
+        System.out.println("New Album created successfully!");
+        return newAlbum;
+    }
 
 	public static ArrayList<Album> deleteAlbum(String name, ArrayList<Album> albums) {
 	    boolean existingAlbum = false;
@@ -139,6 +172,20 @@ public class Album {
 	    }
 		return albums;
 	}
+	
+	public static void listAlbums(ArrayList<Album> albums) {
+        if (albums.isEmpty()) {
+            System.out.println("No albums available.");
+        } else {
+            albums.sort(Comparator.comparing(Album::getName)); 
+
+            System.out.print("List of Albums (Alphabetical Order by Name):"+"\n");
+            for (Album album : albums) {
+                System.out.print("Name: " + album.getName() + ", Release Date: " + album.getReleaseDate()+"\n");
+               
+            }
+        }
+    }
 	
 	
 }
