@@ -25,4 +25,67 @@ public class AlbumView {
             }
         }
     }
+    
+    public Album createAlbum() {
+    	System.out.println("Creating a new Album:");
+
+        System.out.print("Enter album name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter album cover: ");
+        String cover = scanner.nextLine();
+
+        System.out.print("Enter album description: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter album duration: ");
+        String duration = scanner.nextLine();
+
+        System.out.print("Enter release date (YYYY-MM-DD): ");
+        String releaseDate = scanner.nextLine();
+
+        System.out.print("Enter album genre: ");
+        String genre = scanner.nextLine();
+
+        System.out.print("Enter record label: ");
+        String recordLabel = scanner.nextLine();
+        
+        System.out.println("New Album created successfully!");
+    	return new Album(name, cover, description, duration, releaseDate, genre, recordLabel);
+    }
+    
+    public String enterAlbumToDelete() {
+        System.out.print("Enter the name of the album to delete: ");
+        return scanner.nextLine().trim();
+    }
+    
+    //UPDATE
+    public String enterNewName() {
+        System.out.print("Enter new album name (press Enter to keep the current name): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewDuration() {
+        System.out.print("Enter new album duration (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewCover() {
+        System.out.print("Enter new album cover (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewDescription() {
+        System.out.print("Enter new album description (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewReleaseDate() {
+        System.out.print("Enter new album release date (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewGenre() {
+        System.out.print("Enter new album genre (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
+    public String enterNewRecordLabel() {
+        System.out.print("Enter new album record label (press Enter to keep the current duration): ");
+        return scanner.nextLine().trim();
+    }
 }

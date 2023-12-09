@@ -88,39 +88,6 @@ public class Album {
     public void setDuration(String duration) {
     	this.duration = duration;
     }
-    
-    public static Album createAlbum() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Creating a new Album:");
-
-        System.out.print("Enter Album Name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter Album Cover: ");
-        String cover = scanner.nextLine();
-
-        System.out.print("Enter Album Description: ");
-        String description = scanner.nextLine();
-
-        System.out.print("Enter Album Duration: ");
-        String duration = scanner.nextLine();
-
-        System.out.print("Enter Release Date (YYYY-MM-DD): ");
-        String releaseDate = scanner.nextLine();
-
-        System.out.print("Enter Album Genre: ");
-        String genre = scanner.nextLine();
-
-        System.out.print("Enter Record Label: ");
-        String recordLabel = scanner.nextLine();
-
-    
-        Album newAlbum = new Album(name, cover, description, duration, releaseDate, genre, recordLabel);
-
-        System.out.println("New Album created successfully!");
-        return newAlbum;
-    }
 
 	public static ArrayList<Album> deleteAlbum(String name, ArrayList<Album> albums) {
 	    boolean existingAlbum = false;
@@ -140,37 +107,6 @@ public class Album {
 	    }
 	
 	    return albums;
-	}
-	
-	public static ArrayList<Album> updateAlbum(ArrayList<Album> albums, String name,String newName , String cover, String description, String duration, String releaseDate, String genre, String recordLabel){
-		for (int i = 0; i < albums.size(); i++) {
-	        if (albums.get(i).getName() == name) {
-	            if(newName==null) {
-	            }else {
-	            	albums.get(i).name = newName;
-	            }if(cover==null) {
-	            }else {
-	            	albums.get(i).cover = cover;
-	            }if(description==null) {
-	            }else {
-	            	albums.get(i).description = description;
-	            }if(duration==null) {
-	            }else {
-	            	albums.get(i).duration = duration;
-	            }if(releaseDate==null) {
-	            }else {
-	            	albums.get(i).releaseDate= releaseDate;
-	            }if(genre==null) {
-	            }else {
-	            	albums.get(i).genre = genre;
-	            }if(recordLabel==null) {
-	            }else {
-	            	albums.get(i).recordLabel = recordLabel;
-	            }
-	            break;
-	        }
-	    }
-		return albums;
 	}
 	
 	public static void listAlbums(ArrayList<Album> albums) {
