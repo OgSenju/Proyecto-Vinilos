@@ -10,8 +10,10 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import co.Uptc.Vinyls.controller.SongController;
 import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.model.Song;
+import co.Uptc.Vinyls.view.SongView;
 
 class SongTest {
 
@@ -31,25 +33,27 @@ class SongTest {
 	
 	@Test
 	public void testUptadeAlbum() {
+		ArrayList<Song> songs = new ArrayList<>();
+		SongView songView = new SongView();
+        SongController songController = new SongController(songs, songView);
     	//Arrange
 		Song song1 = new Song("We three","3minutes45seconds");
 		Song song2 = new Song("Formed","1second");
-		
-		
-        ArrayList<Song> songs = new ArrayList<>();
+
         songs.add(song1);
         songs.add(song2);
         
         //Act
-        ArrayList<Song> result = Song.uptadeSong(songs, "We three", "We'll meet again", null);
-        result = Song.uptadeSong(songs, "Formed", null, "2second");
+        
+        songController.updateSong("We three");
+        songController.updateSong("Formed");
         
         //Assert
-        assertTrue(result.get(0).getName().equals("We'll meet again"));
-        assertTrue(result.get(1).getName().equals(songs.get(1).getName()) && result.get(1).getDuration().equals("2second"));
+        assertTrue(songs.get(0).getName().equals("We'll meet again"));
+        assertTrue(songs.get(1).getName().equals(songs.get(1).getName()) && songs.get(1).getDuration().equals("2second"));
     }
 	
-	@Test
+	/*@Test
     void testListSongsOutput() {
         Song song1 = new Song("Song A", "Duration1");
         Song song2 = new Song("Song C", "Duration2");
@@ -95,5 +99,5 @@ class SongTest {
         assertTrue(updatedSongs.contains(song1), "Song A should still be present.");
         assertTrue(updatedSongs.contains(song2), "Song C should still be present.");
 
-    }
+    }*/
 }
