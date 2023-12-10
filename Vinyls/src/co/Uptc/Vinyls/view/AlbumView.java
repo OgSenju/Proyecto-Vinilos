@@ -54,10 +54,12 @@ public class AlbumView {
     	return new Album(name, cover, description, duration, releaseDate, genre, recordLabel);
     }
     
+    
     public String enterAlbumToDelete() {
         System.out.print("Enter the name of the album to delete: ");
         return scanner.nextLine().trim();
     }
+    
     
     //UPDATE
     public String enterNewName() {
@@ -69,23 +71,23 @@ public class AlbumView {
         return scanner.nextLine().trim();
     }
     public String enterNewCover() {
-        System.out.print("Enter new album cover (press Enter to keep the current duration): ");
+        System.out.print("Enter new album cover (press Enter to keep the current cover): ");
         return scanner.nextLine().trim();
     }
     public String enterNewDescription() {
-        System.out.print("Enter new album description (press Enter to keep the current duration): ");
+        System.out.print("Enter new album description (press Enter to keep the current description): ");
         return scanner.nextLine().trim();
     }
     public String enterNewReleaseDate() {
-        System.out.print("Enter new album release date (press Enter to keep the current duration): ");
+        System.out.print("Enter new album release date (press Enter to keep the current release date): ");
         return scanner.nextLine().trim();
     }
     public String enterNewGenre() {
-        System.out.print("Enter new album genre (press Enter to keep the current duration): ");
+        System.out.print("Enter new album genre (press Enter to keep the current genre): ");
         return scanner.nextLine().trim();
     }
     public String enterNewRecordLabel() {
-        System.out.print("Enter new album record label (press Enter to keep the current duration): ");
+        System.out.print("Enter new album record label (press Enter to keep the current record label): ");
         return scanner.nextLine().trim();
     }
 }

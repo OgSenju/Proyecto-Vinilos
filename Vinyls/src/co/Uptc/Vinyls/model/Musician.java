@@ -29,8 +29,8 @@ public class Musician implements Performer{
 		return birthDate;
 	}
 	
-	public void setbirthDate(String creationDate) {
-		this.birthDate = creationDate;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 	@Override
 	public void setDescription(String description) {
