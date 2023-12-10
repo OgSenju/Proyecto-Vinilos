@@ -6,7 +6,6 @@ public class Collector {
 	private String email;
 	
 	public Collector(String name, String telephone, String email) {
-		super();
 		this.name = name;
 		this.telephone = telephone;
 		this.email = email;

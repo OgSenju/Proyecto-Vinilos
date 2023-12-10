@@ -2,7 +2,6 @@ package co.Uptc.Vinyls.controller;
 
 import java.util.ArrayList;
 import co.Uptc.Vinyls.model.Album;
-import co.Uptc.Vinyls.model.Song;
 import co.Uptc.Vinyls.view.AlbumView;
 
 public class AlbumController {

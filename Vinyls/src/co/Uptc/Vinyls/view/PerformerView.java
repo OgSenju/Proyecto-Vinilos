@@ -8,7 +8,7 @@ import co.Uptc.Vinyls.model.Performer;
 
 public class PerformerView {
 	
-	public void displayAlbumList(ArrayList<Performer> performers) {
+	public void displayPerformerList(ArrayList<Performer> performers) {
         if (performers.isEmpty()) {
             System.out.println("No musician/band available.");
         } else {

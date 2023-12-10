@@ -32,7 +32,7 @@ class SongTest {
     }
 	
 	@Test
-	public void testUptadeAlbum() {
+	public void testUptadeSong() {
 		ArrayList<Song> songs = new ArrayList<>();
 		SongView songView = new SongView();
         SongController songController = new SongController(songs, songView);
