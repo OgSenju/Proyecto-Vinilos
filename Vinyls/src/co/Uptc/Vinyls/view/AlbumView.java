@@ -1,5 +1,8 @@
 package co.Uptc.Vinyls.view;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -37,12 +40,15 @@ public class AlbumView {
 
         System.out.print("Enter album description: ");
         String description = scanner.nextLine();
-
-        System.out.print("Enter album duration: ");
-        String duration = scanner.nextLine();
-
-        System.out.print("Enter release date (YYYY-MM-DD): ");
-        String releaseDate = scanner.nextLine();
+        
+        System.out.print("Enter album duration (in PT#H#M#S format, Ejem: PT3M30S: 3 minutes y 30 seconds.\n"
+        		+ "PT1H: 1 hour.): ");
+        String durationStr = scanner.nextLine();
+        Duration durationFormat = formatDuration(durationStr);
+        
+        System.out.print("Enter release date (YYYY-MM-DD)(Ejem: 2023-12-11): ");
+        String releaseDateFormat = scanner.nextLine();
+        LocalDate releaseDate = formatReleaseDate(releaseDateFormat); 
 
         System.out.print("Enter album genre: ");
         String genre = scanner.nextLine();
@@ -51,7 +57,7 @@ public class AlbumView {
         String recordLabel = scanner.nextLine();
         
         System.out.println("New Album created successfully!");
-    	return new Album(name, cover, description, duration, releaseDate, genre, recordLabel);
+    	return new Album(name, cover, description, durationFormat, releaseDate, genre, recordLabel);
     }
     
     
@@ -66,9 +72,13 @@ public class AlbumView {
         System.out.print("Enter new album name (press Enter to keep the current name): ");
         return scanner.nextLine().trim();
     }
-    public String enterNewDuration() {
-        System.out.print("Enter new album duration (press Enter to keep the current duration): ");
-        return scanner.nextLine().trim();
+    public Duration enterNewDuration() {
+    	System.out.print("Enter new album duration (press Enter to keep the current duration)(in PT#H#M#S format, Ejem: PT3M30S: 3 minutes y 30 seconds.\n"
+        		+ "PT1H: 1 hour.): ");
+        String durationStr = scanner.nextLine();
+        if(durationStr.isEmpty())return null;
+        return formatDuration(durationStr);
+        
     }
     public String enterNewCover() {
         System.out.print("Enter new album cover (press Enter to keep the current cover): ");
@@ -78,9 +88,11 @@ public class AlbumView {
         System.out.print("Enter new album description (press Enter to keep the current description): ");
         return scanner.nextLine().trim();
     }
-    public String enterNewReleaseDate() {
-        System.out.print("Enter new album release date (press Enter to keep the current release date): ");
-        return scanner.nextLine().trim();
+    public LocalDate enterNewReleaseDate() {
+        System.out.print("Enter new album release date (press Enter to keep the current release date, get into in format(YYYY-MM-DD) Ejem: 2023-12-11): ");
+        String releaseStr = scanner.nextLine();
+        if(releaseStr.isEmpty())return null;
+        return formatReleaseDate(releaseStr);
     }
     public String enterNewGenre() {
         System.out.print("Enter new album genre (press Enter to keep the current genre): ");
@@ -90,4 +102,38 @@ public class AlbumView {
         System.out.print("Enter new album record label (press Enter to keep the current record label): ");
         return scanner.nextLine().trim();
     }
+    
+    
+    //FORMAT DURATION
+    Duration formatDuration(String durationStr) {
+    	boolean formatCorrect = false;
+    	Duration durationFormat = null;
+    	while (!formatCorrect){
+            try {
+                durationFormat =  Duration.parse(durationStr);
+                formatCorrect = true;
+            } catch (Exception e) {
+                System.err.println("Error entering duration. Make sure you use the correct format (PT#H#M#S).");
+            }
+            if(formatCorrect==false)durationStr = scanner.nextLine();
+
+        }
+    	return durationFormat;
+    }
+    LocalDate formatReleaseDate(String releaseDateStr) {
+    	boolean formatCorrect = false;
+    	LocalDate releaseFormat = null;
+    	while(!formatCorrect){
+            try {
+                releaseFormat = LocalDate.parse(releaseDateStr);
+                formatCorrect = true;
+            } catch (DateTimeParseException e) {
+                System.err.println("Error entering date. Make sure you are using the correct format (YYYY-MM-DD).");
+            }
+            if(formatCorrect==false)releaseDateStr = scanner.nextLine();
+
+        }
+    	return releaseFormat;
+    }
+    
 }

@@ -15,13 +15,15 @@ import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.model.Song;
 import co.Uptc.Vinyls.view.SongView;
 
+import java.time.Duration;
+
 class SongTest {
 
 	@Test
 	public void testSongConstructor() {
         // Arrange
         String name = "SongName";
-        String duration = "SongDuration";
+        Duration duration = Duration.parse("PT3M30S");
         
         // Act
         Song song = new Song(name,duration);
@@ -37,8 +39,9 @@ class SongTest {
 		SongView songView = new SongView();
         SongController songController = new SongController(songs, songView);
     	//Arrange
-		Song song1 = new Song("We three","3minutes45seconds");
-		Song song2 = new Song("Formed","1second");
+		Song song1 = new Song("We three",Duration.parse("PT3M30S"));
+		Song song2 = new Song("Formed",Duration.parse("PT1S"));
+		Duration test = Duration.ofSeconds(2);
 
         songs.add(song1);
         songs.add(song2);
@@ -50,7 +53,7 @@ class SongTest {
         
         //Assert
         assertTrue(songs.get(0).getName().equals("We'll meet again"));
-        assertTrue(songs.get(1).getName().equals(songs.get(1).getName()) && songs.get(1).getDuration().equals("2second"));
+        assertTrue(songs.get(1).getName().equals(songs.get(1).getName()) && songs.get(1).getDuration().equals(test));
     }
 	
 	/*@Test

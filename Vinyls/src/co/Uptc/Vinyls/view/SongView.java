@@ -1,6 +1,10 @@
 package co.Uptc.Vinyls.view;
 
 import co.Uptc.Vinyls.model.Song;
+
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -31,12 +35,14 @@ public class SongView {
 	        System.out.print("Enter song name: ");
 	        String name = scanner.nextLine();
 
-	        System.out.print("Enter song duration: ");
-	        String duration = scanner.nextLine();
+	        System.out.print("Enter song duration (in PT#H#M#S format, Ejem: PT3M30S: 3 minutes y 30 seconds.\n"
+	        		+ "PT1H: 1 hour.): ");
+	        String durationStr = scanner.nextLine();
+	        Duration durationFormat = formatDuration(durationStr);
 
 	        System.out.println("New Song created successfully!");
 
-	        return new Song(name, duration);
+	        return new Song(name, durationFormat);
 	    }
 	    
 	    public String enterSongToDelete() {
@@ -49,9 +55,46 @@ public class SongView {
 	        return scanner.nextLine().trim();
 	    }
 
-	    public String enterNewDuration() {
-	        System.out.print("Enter new song duration (press Enter to keep the current duration): ");
-	        return scanner.nextLine().trim();
+	    public Duration enterNewDuration() {
+	    	System.out.print("Enter new song duration (press Enter to keep the current duration)(in PT#H#M#S format, Ejem: PT3M30S: 3 minutes y 30 seconds.\n"
+	        		+ "PT1H: 1 hour.): ");
+	        String durationStr = scanner.nextLine();
+	        if(durationStr.isEmpty())return null;
+	        return formatDuration(durationStr);
+	    }
+	    
+	    
+	  //FORMAT DURATION
+	    Duration formatDuration(String durationStr) {
+	    	boolean formatCorrect = false;
+	    	Duration durationFormat = null;
+	    	while (!formatCorrect){
+	            try {
+	                durationFormat =  Duration.parse(durationStr);
+	                formatCorrect = true;
+	            } catch (Exception e) {
+	                System.err.println("Error entering duration. Make sure you use the correct format (PT#H#M#S).");
+	            }
+	            
+	            if(formatCorrect==false)durationStr = scanner.nextLine();
+
+	        }
+	    	return durationFormat;
+	    }
+	    LocalDate formatReleaseDate(String releaseDateStr) {
+	    	boolean formatCorrect = false;
+	    	LocalDate releaseFormat = null;
+	    	while(!formatCorrect){
+	            try {
+	                releaseFormat = LocalDate.parse(releaseDateStr);
+	                formatCorrect = true;
+	            } catch (DateTimeParseException e) {
+	                System.err.println("Error entering date. Make sure you are using the correct format (YYYY-MM-DD).");
+	            }
+	            if(formatCorrect==false)releaseDateStr = scanner.nextLine();
+
+	        }
+	    	return releaseFormat;
 	    }
 }
 

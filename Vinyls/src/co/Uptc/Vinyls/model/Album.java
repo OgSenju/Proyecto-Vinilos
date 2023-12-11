@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Scanner;
 
 
 
@@ -12,13 +11,13 @@ public class Album {
 	private String name;
 	private String cover;
 	private String description;
-	private String duration; //Duration
-	private String releaseDate; //LocalDate
+	private Duration duration; //Duration
+	private LocalDate releaseDate; //LocalDate
 	private String genre;
 	private String recordLabel;
 	
     // BUILDERS
-    public Album(String name, String cover, String description, String duration, String releaseDate, String genre, String recordLabel) {
+    public Album(String name, String cover, String description, Duration duration, LocalDate releaseDate, String genre, String recordLabel) {
         this.name = name;
         this.cover = cover;
         this.description = description;
@@ -44,7 +43,7 @@ public class Album {
         return description;
     }
 
-    public String getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
@@ -56,7 +55,7 @@ public class Album {
         return recordLabel;
     }
     
-    public String getDuration() {
+    public Duration getDuration() {
     	return duration;
     }
     
@@ -73,7 +72,7 @@ public class Album {
         this.description = description;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -85,7 +84,7 @@ public class Album {
         this.recordLabel = recordLabel;
     }
     
-    public void setDuration(String duration) {
+    public void setDuration(Duration duration) {
     	this.duration = duration;
     }
 

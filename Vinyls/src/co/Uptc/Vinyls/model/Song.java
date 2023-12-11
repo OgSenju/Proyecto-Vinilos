@@ -1,10 +1,12 @@
 package co.Uptc.Vinyls.model;
 
+import java.time.Duration;
+
 public class Song {
 	private String name;
-	private String duration;
+	private Duration duration;
 	
-	public Song (String name, String duration) {
+	public Song (String name, Duration duration) {
 		this.name = name;
 		this.duration = duration;
 	}
@@ -13,7 +15,7 @@ public class Song {
 	public void setName(String name) {
         this.name = name;
     }
-	public void setDuration(String duration) {
+	public void setDuration(Duration duration) {
         this.duration = duration;
     }
 	
@@ -21,7 +23,7 @@ public class Song {
 	public String getName() {
         return name;
     }
-	public String getDuration() {
+	public Duration getDuration() {
     	return duration;
     }
 	

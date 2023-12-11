@@ -1,5 +1,7 @@
 package co.Uptc.Vinyls.controller;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.view.AlbumView;
@@ -22,18 +24,18 @@ public class AlbumController {
         for (Album album : albums) {
             if (album.getName().equals(name)) {
                 String newName = albumView.enterNewName();
-                String newDuration = albumView.enterNewDuration();
+                Duration newDuration = albumView.enterNewDuration();
                 String newCover = albumView.enterNewCover();
                 String newDescription = albumView.enterNewDescription();
-                String newReleaseDate = albumView.enterNewReleaseDate();
+                LocalDate newReleaseDate = albumView.enterNewReleaseDate();
                 String newGenre = albumView.enterNewGenre();
                 String newRecordLabel = albumView.enterNewRecordLabel();
                 
                 if (!newName.isEmpty()) {
                     album.setName(newName);
                 }
-                if (!newDuration.isEmpty()) {
-                    album.setDuration(newDuration);
+                if (newDuration!= null) {
+                	album.setDuration(newDuration);
                 }
                 if (!newCover.isEmpty()) {
                     album.setCover(newCover);
@@ -41,7 +43,7 @@ public class AlbumController {
                 if (!newDescription.isEmpty()) {
                     album.setDescription(newDescription);
                 }
-                if (!newReleaseDate.isEmpty()) {
+                if (newReleaseDate != null) {
                     album.setReleaseDate(newReleaseDate);
                 }
                 if (!newGenre.isEmpty()) {

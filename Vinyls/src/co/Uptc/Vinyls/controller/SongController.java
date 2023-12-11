@@ -1,5 +1,6 @@
 package co.Uptc.Vinyls.controller;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import co.Uptc.Vinyls.model.Song;
 import co.Uptc.Vinyls.view.SongView;
@@ -23,13 +24,13 @@ public class SongController {
         for (Song song : songs) {
             if (song.getName().equals(name)) {
                 String newName = songView.enterNewName();
-                String newDuration = songView.enterNewDuration();
+                Duration newDuration = songView.enterNewDuration();
 
                 if (!newName.isEmpty()) {
                     song.setName(newName);
                 }
-                if (!newDuration.isEmpty()) {
-                    song.setDuration(newDuration);
+                if (newDuration!= null) {
+                	song.setDuration(newDuration);
                 }
                 System.out.println("Song updated successfully!");
                 return;
