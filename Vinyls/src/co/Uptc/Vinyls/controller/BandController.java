@@ -1,5 +1,6 @@
 package co.Uptc.Vinyls.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import co.Uptc.Vinyls.model.Band;
@@ -18,7 +19,7 @@ public class BandController {
         for (Band band : bands) {
             if (band.getName().equals(name)) {
                 String newName = bandView.enterNewName();
-                String newCreationDate = bandView.enterNewCreationDate();
+                LocalDate newCreationDate = bandView.enterNewCreationDate();
                 String newImage = bandView.enterNewImage();
                 String newDescription = bandView.enterNewDescription();
 
@@ -28,7 +29,7 @@ public class BandController {
                 if (!newImage.isEmpty()) {
                     band.setImage(newImage);
                 }
-                if (!newCreationDate.isEmpty()) {
+                if (newCreationDate != null) {
                     band.setCreationDate(newCreationDate);
                 }
                 if (!newDescription.isEmpty()) {

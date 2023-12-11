@@ -3,8 +3,6 @@ package co.Uptc.Vinyls.view;
 import co.Uptc.Vinyls.model.Song;
 
 import java.time.Duration;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -80,21 +78,6 @@ public class SongView {
 
 	        }
 	    	return durationFormat;
-	    }
-	    LocalDate formatReleaseDate(String releaseDateStr) {
-	    	boolean formatCorrect = false;
-	    	LocalDate releaseFormat = null;
-	    	while(!formatCorrect){
-	            try {
-	                releaseFormat = LocalDate.parse(releaseDateStr);
-	                formatCorrect = true;
-	            } catch (DateTimeParseException e) {
-	                System.err.println("Error entering date. Make sure you are using the correct format (YYYY-MM-DD).");
-	            }
-	            if(formatCorrect==false)releaseDateStr = scanner.nextLine();
-
-	        }
-	    	return releaseFormat;
 	    }
 }
 

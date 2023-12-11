@@ -1,5 +1,6 @@
 package co.Uptc.Vinyls.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import co.Uptc.Vinyls.model.Musician;
@@ -18,7 +19,7 @@ public class MusicianController {
         for (Musician musician : musicians) {
             if (musician.getName().equals(name)) {
                 String newName = musicianView.enterNewName();
-                String newBirthDate = musicianView.enterNewBirthDate();
+                LocalDate newBirthDate = musicianView.enterNewBirthDate();
                 String newImage = musicianView.enterNewImage();
                 String newDescription = musicianView.enterNewDescription();
 
@@ -28,18 +29,18 @@ public class MusicianController {
                 if (!newImage.isEmpty()) {
                     musician.setImage(newImage);
                 }
-                if (!newBirthDate.isEmpty()) {
+                if (newBirthDate != null) {
                     musician.setBirthDate(newBirthDate);
                 }
                 if (!newDescription.isEmpty()) {
                     musician.setDescription(newDescription);
                 }
-                System.out.println("Band updated successfully!");
+                System.out.println("Musician updated successfully!");
                 return;
             }
         }
 
-        System.out.println("Band not found.");
+        System.out.println("Musician not found.");
     }
 	
 	public void deleteBand() {

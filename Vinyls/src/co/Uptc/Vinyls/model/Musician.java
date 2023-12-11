@@ -1,12 +1,14 @@
 package co.Uptc.Vinyls.model;
 
+import java.time.LocalDate;
+
 public class Musician implements Performer{
 	private String name;
 	private String image;
 	private String description;
-	private String birthDate;
+	private LocalDate birthDate;
 	
-	public Musician(String name, String image, String description, String birthDate) {
+	public Musician(String name, String image, String description, LocalDate birthDate) {
 		this.name = name;
 		this.image = image;
 		this.description = description;
@@ -25,11 +27,11 @@ public class Musician implements Performer{
 	public String getName() {
 		return name;
 	}
-	public String getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 	
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 	@Override
