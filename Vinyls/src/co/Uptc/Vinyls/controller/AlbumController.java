@@ -3,6 +3,7 @@ package co.Uptc.Vinyls.controller;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.view.AlbumView;
 
@@ -72,5 +73,12 @@ public class AlbumController {
 			
 		}
 		System.out.println("The album does not exist. Could not delete.");
+	}
+	
+	public ArrayList<Album> getArrayAlbums() {
+		return albums;
+	}
+	public AlbumView getAlbumView() {
+		return albumView;
 	}
 }

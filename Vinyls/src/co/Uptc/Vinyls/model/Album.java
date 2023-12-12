@@ -3,7 +3,6 @@ package co.Uptc.Vinyls.model;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 
 
@@ -15,6 +14,7 @@ public class Album {
 	private LocalDate releaseDate; //LocalDate
 	private String genre;
 	private String recordLabel;
+	private ArrayList<Album> albums;
 	
     // BUILDERS
     public Album(String name, String cover, String description, Duration duration, LocalDate releaseDate, String genre, String recordLabel) {
@@ -108,19 +108,12 @@ public class Album {
 	    return albums;
 	}
 	
-	public static void listAlbums(ArrayList<Album> albums) {
-        if (albums.isEmpty()) {
-            System.out.println("No albums available.");
-        } else {
-            albums.sort(Comparator.comparing(Album::getName)); 
-
-            System.out.print("List of Albums (Alphabetical Order by Name):"+"\n");
-            for (Album album : albums) {
-                System.out.print("Name: " + album.getName() + ", Release Date: " + album.getReleaseDate()+"\n");
-               
-            }
-        }
-    }
+	public ArrayList<Album> getAlbums() {
+		return albums;
+	}
+	public void setAlbums(ArrayList<Album> albums) {
+		this.albums = albums;
+	}
 	
 	
 }

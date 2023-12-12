@@ -1,6 +1,7 @@
 package co.Uptc.Vinyls.controller;
 
 import java.util.ArrayList;
+
 import co.Uptc.Vinyls.model.Collector;
 import co.Uptc.Vinyls.view.CollectorView;
 
@@ -50,5 +51,9 @@ public class CollectorController {
 	
 	public ArrayList<Collector> getCollectors(){
 		return collectors;
+	}
+	
+	public CollectorView getCollectorView() {
+		return collectorView;
 	}
 }

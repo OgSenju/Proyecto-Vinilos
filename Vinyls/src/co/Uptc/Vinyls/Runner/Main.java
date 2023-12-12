@@ -6,6 +6,7 @@ import co.Uptc.Vinyls.controller.CollectorController;
 import co.Uptc.Vinyls.controller.LoginController;
 import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.model.Collector;
+import co.Uptc.Vinyls.model.Performer;
 import co.Uptc.Vinyls.model.Song;
 import co.Uptc.Vinyls.view.AlbumView;
 import co.Uptc.Vinyls.view.BandView;
@@ -19,7 +20,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		ArrayList<Collector> collectors = new ArrayList<>();
-		
+		ArrayList<Performer> performers = new ArrayList<>();
 		
 		//VIEW
 		LoginView loginView = new LoginView();
@@ -27,7 +28,7 @@ public class Main {
 		AlbumView albumView = new AlbumView();
 		BandView bandView = new BandView();
 		MusicianView musicianView = new MusicianView();
-		PerformerView performerView = new PerformerView();
+		PerformerView performerView = new PerformerView(performers);
 		SongView songView = new SongView();
 		
 		//CONTROLLER
@@ -56,6 +57,7 @@ public class Main {
 			}
 		}
 		System.out.print("\n\nHello, "+ userName);
+		
 		
 	}
 	

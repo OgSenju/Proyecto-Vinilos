@@ -1,6 +1,5 @@
 package co.Uptc.Vinyls.controller;
 
-import java.util.ArrayList;
 
 import co.Uptc.Vinyls.model.Collector;
 import co.Uptc.Vinyls.view.LoginView;
