@@ -47,4 +47,8 @@ public class CollectorController {
 		collectors.remove(collector);
 		System.out.println("Profile deleted successfully");
 	}
+	
+	public ArrayList<Collector> getCollectors(){
+		return collectors;
+	}
 }

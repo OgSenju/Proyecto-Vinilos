@@ -4,11 +4,13 @@ public class Collector {
 	private String name;
 	private String telephone;
 	private String email;
+	private String password;
 	
-	public Collector(String name, String telephone, String email) {
+	public Collector(String name, String telephone, String email, String password) {
 		this.name = name;
 		this.telephone = telephone;
 		this.email = email;
+		this.password = password;
 	}
 	
 	public String getName() {
@@ -28,6 +30,14 @@ public class Collector {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

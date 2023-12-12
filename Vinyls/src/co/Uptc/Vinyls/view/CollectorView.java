@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.model.Collector;
 
 public class CollectorView {
@@ -28,11 +27,14 @@ public class CollectorView {
     }
 	
 	public Collector createCollector() {
-    	System.out.println("Creating a new Album:");
+    	System.out.println("Register collector: ");
 
         System.out.print("Enter collector name: ");
         String name = sc.nextLine();
-
+        
+        System.out.print("Enter collector password: ");
+        String password = sc.nextLine();
+        
         System.out.print("Enter collector telephone: ");
         String telephone = sc.nextLine();
 
@@ -40,7 +42,7 @@ public class CollectorView {
         String email = sc.nextLine();
         
         System.out.println("New collector successfully registered!");
-    	return new Collector(name, telephone, email);
+    	return new Collector(name, telephone, email, password);
     }
 	
 	
