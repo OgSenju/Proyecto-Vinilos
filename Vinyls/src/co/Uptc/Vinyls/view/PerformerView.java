@@ -13,7 +13,6 @@ public class PerformerView {
 	
 	
 	public PerformerView(ArrayList<Performer> performers) {
-		super();
 		this.performers = performers;
 	}
 

@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 
 
-public class Album {
-	private String name;
+public class Album extends User{
 	private String cover;
 	private String description;
 	private Duration duration; //Duration
@@ -18,7 +17,8 @@ public class Album {
 	
     // BUILDERS
     public Album(String name, String cover, String description, Duration duration, LocalDate releaseDate, String genre, String recordLabel) {
-        this.name = name;
+        super(name);
+    	this.name = name;
         this.cover = cover;
         this.description = description;
         this.duration = duration;
@@ -26,14 +26,8 @@ public class Album {
         this.genre = genre;
         this.recordLabel = recordLabel;
     }
-    public Album() {
-        
-    }
     
     // METHODS GETTER
-    public String getName() {
-        return name;
-    }
 
     public String getCover() {
         return cover;
@@ -60,9 +54,6 @@ public class Album {
     }
     
     // METHODS SETTER
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setCover(String cover) {
         this.cover = cover;

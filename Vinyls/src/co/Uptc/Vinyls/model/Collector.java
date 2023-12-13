@@ -1,10 +1,13 @@
 package co.Uptc.Vinyls.model;
 
+import java.util.ArrayList;
+
 public class Collector {
 	private String name;
 	private String telephone;
 	private String email;
 	private String password;
+	private ArrayList<Album> albumsC;
 	
 	public Collector(String name, String telephone, String email, String password) {
 		this.name = name;
@@ -13,6 +16,10 @@ public class Collector {
 		this.password = password;
 	}
 	
+	public Collector() {
+		
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -38,6 +45,14 @@ public class Collector {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public ArrayList<Album> getAlbumsC() {
+		return albumsC;
+	}
+
+	public void setAlbumsC(ArrayList<Album> albumsC) {
+		this.albumsC = albumsC;
 	}
 	
 	

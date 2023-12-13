@@ -24,21 +24,24 @@ public class MenuFuncStartController {
 		switch(option) {
 		case 1:
 			albumC.getAlbumView().displayAlbumList(albumC.getArrayAlbums());
+			mFSV.processOption1();
 			break;
 		case 2:
 			albums.getAlbumView().displayAlbumList(albums.getArrayAlbums());
+			mFSV.processOption2();
 			break;
 		case 3:
 			collectors.getCollectorView().displayCollectorList(collectors.getCollectors());
+			mFSV.processOption3();
 			break;
 		case 4:
 			performerView.displayPerformerList();
+			mFSV.processOption4();
 			break;
 		case 5:
-			System.out.print("Exit");
+			System.exit(0);
 			break;
 		case 6:
-			System.out.print("Sign off");
 			break;
 		}
 	}

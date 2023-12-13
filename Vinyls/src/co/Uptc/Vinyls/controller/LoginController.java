@@ -2,6 +2,7 @@ package co.Uptc.Vinyls.controller;
 
 
 import co.Uptc.Vinyls.model.Collector;
+import co.Uptc.Vinyls.model.Visitor;
 import co.Uptc.Vinyls.view.LoginView;
 
 public class LoginController {
@@ -13,7 +14,7 @@ public class LoginController {
 		this.collectorController = collectorController;
 	}
 
-	public String performAction() {
+	public Object performAction() {
 		int option = loginView.Startmenu();
         switch (option) {
             case 1:
@@ -21,12 +22,12 @@ public class LoginController {
                 String password = loginView.enterPassword();
                 if(collectorController.getCollectors().isEmpty()) return "isEmpty";
                 for (Collector collector: collectorController.getCollectors()) {
-                	if(collector.getName().equals(nameUser) && collector.getPassword().equals(password))return nameUser;
+                	if(collector.getName().equals(nameUser) && collector.getPassword().equals(password))return collector;
                 }
                 System.out.println("Non-existent user or incorrect user/password");
                 break;
             case 2:
-            	return "Visitor";
+            	return new Visitor("Visitor");
             case 3:
             	collectorController.createAndAddCollector();
             	return "Created";
