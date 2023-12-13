@@ -2,8 +2,10 @@ package co.Uptc.Vinyls.controller;
 
 import java.util.ArrayList;
 
+import co.Uptc.Vinyls.model.Album;
 import co.Uptc.Vinyls.model.Collector;
 import co.Uptc.Vinyls.view.CollectorView;
+import co.Uptc.Vinyls.view.PerformerView;
 
 
 public class CollectorController {
@@ -43,6 +45,7 @@ public class CollectorController {
 		
 		System.out.println("Collector not found.");
 	}
+
 	
 	public void deleteCollector(ArrayList<Collector> collectors, Collector collector) {
 		collectors.remove(collector);

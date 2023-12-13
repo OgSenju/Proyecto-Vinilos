@@ -36,5 +36,34 @@ public class PerformerView {
         }
     }
 	
+	public void viewDetailsPerformer(String name) {
+		if (performers.isEmpty()) {
+            System.out.println("No musician/band available.");
+        } else {
+        	for(Performer performer: performers) {
+        		if(name.equals(performer.getName())) {
+	        		if(performer instanceof Musician) {
+	        			System.out.println("Name: " + ((Musician) performer).getName());
+	        			System.out.println("Image: " + ((Musician) performer).getImage());
+	        			System.out.println("Description :" + ((Musician) performer).getDescription());
+	        			System.out.println("Birht date: " + ((Musician) performer).getBirthDate());
+	        		}else if(performer instanceof Band) {
+	        			System.out.println("Band name: " + ((Band) performer).getName());
+	        			System.out.println("Image: " + ((Band) performer).getImage());
+	        			System.out.println("Description: " + ((Band) performer).getDescription());
+	        			System.out.println("Creation date: " + ((Band) performer).getCreationDate());
+	        		}
+        		}
+        		return;
+        	}
+        }
+		System.out.println("\n Non-existent performer");
+        	
+	}
+	
+	public ArrayList<Performer> getPerformers(){
+		return performers;
+	}
+	
 	
 }

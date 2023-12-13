@@ -13,7 +13,7 @@ public class Album extends User{
 	private LocalDate releaseDate; //LocalDate
 	private String genre;
 	private String recordLabel;
-	private ArrayList<Album> albums;
+	private ArrayList<Performer> performer;
 	
     // BUILDERS
     public Album(String name, String cover, String description, Duration duration, LocalDate releaseDate, String genre, String recordLabel) {
@@ -79,31 +79,12 @@ public class Album extends User{
     	this.duration = duration;
     }
 
-	public static ArrayList<Album> deleteAlbum(String name, ArrayList<Album> albums) {
-	    boolean existingAlbum = false;
-	
-	    for (int i = 0; i < albums.size(); i++) {
-	        if (albums.get(i).getName().equals(name)) {
-	            albums.remove(i);
-	            existingAlbum = true;
-	            break;
-	        }
-	    }
-	
-	    if (existingAlbum) {
-	        System.out.print("Album deleted successfully.");
-	    } else {
-	    	System.out.print("The album does not exist. Could not delete.");
-	    }
-	
-	    return albums;
+	public ArrayList<Performer> getPerformer() {
+		return performer;
 	}
-	
-	public ArrayList<Album> getAlbums() {
-		return albums;
-	}
-	public void setAlbums(ArrayList<Album> albums) {
-		this.albums = albums;
+
+	public void setPerformer(ArrayList<Performer> performer) {
+		this.performer = performer;
 	}
 	
 	

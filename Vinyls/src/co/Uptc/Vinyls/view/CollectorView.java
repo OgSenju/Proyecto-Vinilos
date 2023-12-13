@@ -26,6 +26,23 @@ public class CollectorView {
         }
     }
 	
+	public void viewDetailsCollector(ArrayList<Collector> collectors, String name) {
+    	if (collectors.isEmpty()) {
+            System.out.println("No collectors available.");
+        } else {
+        	for (Collector collector : collectors) {
+        		if(collector.getName().equals(name)) {
+             	   System.out.println("Name: " + collector.getName());
+             	   System.out.println("Telephone: " + collector.getTelephone());
+             	   System.out.println("Email: " + collector.getEmail());
+             	   return;
+                }
+                
+             }
+         	System.out.println("\n Non-existent collector");
+         }
+    }
+	
 	public Collector createCollector() {
     	System.out.println("Register collector: ");
 

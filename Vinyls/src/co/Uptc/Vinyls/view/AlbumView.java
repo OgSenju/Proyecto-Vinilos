@@ -29,6 +29,29 @@ public class AlbumView {
         }
     }
     
+    public void viewDetailsAlbum(ArrayList<Album> albums, String name) {
+    	if (albums.isEmpty()) {
+            System.out.println("No albums available.");
+        } else {
+        	for (Album album : albums) {
+               if(album.getName().equals(name)) {
+            	   System.out.println("Name: " + album.getName());
+            	   System.out.println("Cover: " + album.getCover());
+            	   System.out.println("Description: " + album.getDescription());
+            	   System.out.println("Duration: " + album.getDuration());
+            	   System.out.println("Release date: " + album.getReleaseDate());
+            	   System.out.println("Genre: " + album.getGenre());
+            	   System.out.println("Record labe: " + album.getRecordLabel());
+            	   PerformerView performerView = new PerformerView(album.getPerformer());
+            	   performerView.displayPerformerList();
+            	   return;
+               }
+               
+            }
+        	System.out.println("\n Non-existent album");
+        }
+    }
+    
     public Album createAlbum() {
     	System.out.println("Creating a new Album:");
 

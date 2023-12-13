@@ -16,12 +16,12 @@ public class AlbumController {
 		this.albumView = albumView;
 	}
     
-	public void createAndAddSong() {
-        Album newSong = albumView.createAlbum();
-        albums.add(newSong);
+	public void createAndAddAlbum() {
+        Album newAlbum = albumView.createAlbum();
+        albums.add(newAlbum);
     }
 	
-	public void updateSong(String name) {
+	public void updateAlbum(String name) {
         for (Album album : albums) {
             if (album.getName().equals(name)) {
                 String newName = albumView.enterNewName();
@@ -73,6 +73,10 @@ public class AlbumController {
 			
 		}
 		System.out.println("The album does not exist. Could not delete.");
+	}
+	
+	public void addToList(Album album) {
+		albums.add(album);
 	}
 	
 	public ArrayList<Album> getArrayAlbums() {

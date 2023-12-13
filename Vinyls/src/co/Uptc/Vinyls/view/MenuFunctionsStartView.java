@@ -93,4 +93,12 @@ public class MenuFunctionsStartView {
 		return option;
 	}
 	
+	
+	
+	public String enterName() {
+		System.out.print("Enter name album : ");
+		return sc.nextLine();
+	}
+	
+	
 }
